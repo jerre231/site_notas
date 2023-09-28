@@ -1,0 +1,142 @@
+body {
+    position: relative; /* Necessário para posicionar o ::before */
+    color: #000000;
+    background-image: url('https://img.freepik.com/fotos-premium/fundo-de-papel-de-parede-gradiente-de-cor-pastel-abstrato-suave_533018-40.jpg');
+    background-size: 100% 100%; /* Ajusta o tamanho da imagem de fundo */
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.3; /* Ajuste a opacidade do fundo */
+    z-index: -1; /* Coloca o fundo atrás de todo o conteúdo */
+}
+
+.container {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 42.5em; 
+}
+
+.intern {
+    width: 25em;
+    height: 12.5em; 
+    background-color: #eae4e4;
+    text-align: center;
+    border-radius: 1em;
+    opacity: 0.95;
+} 
+
+form {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #574949;
+}
+
+.header {
+    text-align: center;
+    padding: 0.625em;
+    height: 2em;
+    background-color: #eae4e4;
+    border-radius: 0.2em;
+    opacity: 0.7;
+}
+
+.header img {
+    width: 2.125em;
+    height: 2.125em;
+}
+
+.header a {
+    margin-right: 5px;
+    text-decoration: none;
+}
+
+.sign-up {
+    text-align: right;
+    margin-top: -1.8em;
+    margin-right: 0.5em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+.home-sidebar {
+    position: absolute;
+    top: 2.5em;
+    right: 20em;
+    width: 30%;
+    height: 90vh;
+    background-color: #eae4e4;
+    border-radius: 1em;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+
+.insert-box {
+    position: absolute;
+    top: 30em;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 180px;
+    background-color: #eae4e4;
+    border-radius: 1em;
+    text-align: center;
+    font-size: 14px;
+    line-height: 100px;
+    opacity: 0.7;
+}
+
+.box {
+    text-align: center;
+    margin-top: -10;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #574949;
+}
+
+/* Estilo para a tabela */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: none; /* Remova as bordas */
+    border-radius: 10px;
+    background-color: #eae4e4;
+}
+
+/* Estilo para as células da tabela */
+.table th,
+.table td {
+    padding: 10px;
+    text-align: left;
+    border: none; /* Remova as bordas das células */
+}
+
+/* Estilo para o cabeçalho da tabela */
+.table th {
+    background-color: #eae4e4; /* Mesma cor da tabela */
+    font-weight: bold; /* Para destacar o cabeçalho */
+}
+
+/* Estilo para as linhas pares da tabela */
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estilo para o hover nas linhas da tabela */
+.table tr:hover {
+    background-color: #dcdcdc;
+}

@@ -1,0 +1,26 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+</head>
+<body>
+    <div class="insert-box">
+        <div class="box">
+            <form method="post" action="/box">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+                <br>
+                <label for="numero">Número:</label>
+                <input type="text" id="numero" name="numero" required>
+                <br>
+                <button type="submit" name="opc" value="insert">Inserir</button>
+                <button type="submit" name="opc" value="remove">Remover</button>
+            </form>
+        </div>
+    </div>
+    <div class="home-sidebar">
+        <div class="siderbar-intern">
+           <a>{{ tabela_html | safe }}</a>
+        </div>
+    </div>
+</body>
+</html>
