@@ -4,10 +4,6 @@ from classes import *
 
 app = Flask(__name__)
 
-admin = {
-    'admin': 123
-}
-
 @app.route("/")
 def redirect_to_login():
     return redirect(url_for("login"))
@@ -33,11 +29,17 @@ def home():
 @app.route("/box", methods=["GET", "POST"])
 def box():
     nome = request.form.get("nome")
-    numero = request.form.get("numero")
+    avaliacao = request.form.get("avaliacao")
+    nota = request.form.get("valor")
     opc = request.form.get("opc")
 
+    aluno_temp = Aluno(nome)
+
     if opc == "insert":
-        pass
+        try:
+            aluno_temp.inserir_nota(avaliacao, nota)
+        except:
+            pass
     elif opc == "remove":
         pass
     
@@ -45,13 +47,19 @@ def box():
 
 @app.route("/imprimir")
 def imprimir():
-    '''
-    df = pd.read_csv('data.txt', delimiter=':', header=None, names=['Nome', 'Número'])  
+
+    client = start_client()
+    db = client["database"]
+    alunos = db["alunos"]
+    
+    dados = list(alunos.find({}, {"_id": 0}))
+    df = pd.DataFrame(dados)
+    client.close
+    
+    #df = pd.read_csv('data.txt', delimiter=':', header=None, names=['Nome', 'Número'])  
     tabela_html = df.to_html(classes='table table-striped', index=False)
     
     return render_template("home.html", tabela_html=tabela_html)
-    '''
-    return render_template("home.html")
 
 @app.route("/pagina_de_cadastro", methods=["GET", "POST"])                             
 def pagina_de_cadastro():

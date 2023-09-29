@@ -30,22 +30,28 @@ class Usuario:
             client.close
             return False
 
-class Alunos(Usuario):
-    def __init__(self):
-        self.nome = self.user
-        
+class Aluno(Usuario):
+    def __init__(self, user):
+        self.nome = user
+
         client = start_client()
         db = client["database"]
         alunos = db["alunos"]
         data = {"nome": self.nome}
-        alunos.insert_one(data)
-        client.close()
+        check = alunos.find_one(data)
+        if not check:
+            alunos.insert_one(data)
+            client.close()
+        else: pass
 
     def inserir_nota(self, avaliacao, nota):
         client = start_client()
         db = client["database"]
         alunos = db["alunos"]
         filtro = {"nome": self.nome}
-        data = { "$set": { avaliacao: nota } }
-        alunos.update_one(filtro, data)
-        client.close()
+        user = alunos.find_one(filtro)
+        
+        if user:
+            data = { "$set": { avaliacao: nota } }
+            alunos.update_one(filtro, data)
+            client.close()
