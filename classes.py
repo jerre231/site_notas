@@ -17,13 +17,13 @@ class Usuario:
         usuarios.insert_one(data)
         client.close()
 
-    def autenticar(self, usuario,senha):
+    def autenticar(self):
         client = start_client()
         db = client["database"]
         usuarios = db["usuarios"]
-        user = usuarios.find_one({"nome": usuario})
+        user = usuarios.find_one({"nome": self.user})
 
-        if user and user["senha"] == senha:
+        if user and user["senha"] == self.passw:
             client.close
             return True
         else:
