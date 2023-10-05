@@ -1,5 +1,23 @@
-Código feito para a matéria de Linguagens de Programação da Universidade Federal do Rio de Janeiro - UFRJ. Executando o launch.sh o programa funcionará. Para contato: +55 (21) 984130223
+# SmartStyle
 
+Projeto desenvolvido para a disciplina de Linguagens de Programção da <a href="https://ufrj.br/en/">Universidade Federal do Rio de Janeiro</a>.
 
+**Alunos:**
 
-Code made for the subject of Programming Languages ​​at the Federal University of Rio de Janeiro - UFRJ. Run launch.sh and the program will work. For contact: +55 (21) 984130223
+- Caio Diniz
+
+- Henrique Pousa
+
+- João Ricardo Monteiro Scofield Lauar
+
+**Requisitos:**
+
+- Python
+- Flask
+- MongoDB
+
+**Para executar o código, utilize o seguinte comandos:**
+
+```shell
+flask run
+```
