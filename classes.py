@@ -4,6 +4,10 @@ def start_client():
     client = pymongo.MongoClient("localhost", 27017)
     return client
 
+def calc_nota(p1, p2, nota_lista):
+    med = ((p1 + p2)*0.8)+((nota_lista)*0.2)
+    return med/2
+
 class Usuario:
     def __init__(self, user, passw):
         self.user = user
@@ -55,3 +59,13 @@ class Aluno(Usuario):
             data = { "$set": { avaliacao: nota } }
             alunos.update_one(filtro, data)
             client.close()
+
+    def remover(self):                             #TODO: consertar, não está funcionando
+        client = start_client()
+        db = client["database"]
+        alunos = db["alunos"]
+        filtro = {"nome": self.nome}
+        user = alunos.find_one(filtro)
+
+        if user:
+            alunos.delete_many(filtro)
