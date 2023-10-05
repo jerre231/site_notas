@@ -25,34 +25,32 @@ def home():
 
 @app.route("/box", methods=["GET", "POST"])
 def box():
-    nome = request.form.get("nome")
-    p1 = float(request.form.get("p1"))
-    p2 = float(request.form.get("p2"))
-    valor = request.form.get("valor")
-    opc = request.form.get("opc")
-    nota_lista_str = valor.split(",")
-    nota_lista = [float(item) for item in nota_lista_str]
-    aluno_temp = Aluno(nome)
-
+    try:
+        nome = request.form.get("nome")
+        p1 = float(request.form.get("p1"))
+        p2 = float(request.form.get("p2"))
+        valor = request.form.get("valor")
+        opc = request.form.get("opc")
+        nota_lista_str = valor.split(",")
+        nota_lista = [float(item) for item in nota_lista_str]
+        aluno_temp = Aluno(nome)
+    except:
+        nome = request.form.get("nome")
+        opc = request.form.get("opc")
+        aluno_temp = Aluno(nome)
     if opc == "insert":
             if p1:
                 aluno_temp.inserir_nota("P1", p1)
             if p2:
                 aluno_temp.inserir_nota("P2", p2)
             if valor:
-                soma = 0
-                n = 0
                 for i, nota in enumerate(nota_lista):
                     numero = f"lista{i+1}"
                     aluno_temp.inserir_nota(numero, nota)
-                    soma += nota
-                    n += 1
-            listas = soma/n
-            print(listas)
-            media = calc_nota(p1, p2, listas)
+            media = calc_nota(p1, p2, nota_lista)
             aluno_temp.inserir_nota("media", media)
     elif opc == "remove":
-        aluno_temp.remover
+        aluno_temp.remover()
     
     return redirect(url_for("imprimir"))
 

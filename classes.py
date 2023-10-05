@@ -5,8 +5,9 @@ def start_client():
     return client
 
 def calc_nota(p1, p2, nota_lista):
-    med = ((p1 + p2)*0.8)+((nota_lista)*0.2)
-    return med/2
+    media = sum(nota_lista)/len(nota_lista)
+    med = ((p1 + p2)*(2/5))+((media)*0.2)
+    return med
 
 class Usuario:
     def __init__(self, user, passw):
@@ -65,7 +66,4 @@ class Aluno(Usuario):
         db = client["database"]
         alunos = db["alunos"]
         filtro = {"nome": self.nome}
-        user = alunos.find_one(filtro)
-
-        if user:
-            alunos.delete_many(filtro)
+        alunos.delete_many(filtro)

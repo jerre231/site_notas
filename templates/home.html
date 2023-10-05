@@ -8,6 +8,10 @@
     label {
         display: block; /* Coloque cada label em uma nova linha */
     }
+
+    .box > div {
+        margin-bottom: 5px; /* Ajuste o valor da margem conforme necessário */
+    }
 </style>
 <html>
 <head>
@@ -18,20 +22,26 @@
         <div class="box">
             <form method="post" action="/box">
                 <div class="labels-container">
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" required=True>
-                    <br>
-                    <label for="nota1">P1:</label>
-                    <input type="text" id="p1" name="p1">
-                    <br>
-                    <label for="nota2">P2:</label>
-                    <input type="text" id="p2" name="p2">
-                    <br>
-                    <label for="valor">Nota lista:</label>
-                    <input type="text" id="valor" name="valor">
-                    <br>
-                    <button type="submit" name="opc" value="insert">Enviar</button>
-                    <button type="submit" name="opc" value="remove">Remover</button>
+                    </div>
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required=True>
+                    </div>
+                    <div>
+                        <label for="nota1">P1:</label>
+                        <input type="text" id="p1" name="p1">
+                    </div>
+                    <div>   
+                        <label for="nota2">P2:</label>
+                        <input type="text" id="p2" name="p2">
+                    </div>
+                    <div>
+                        <label for="valor">Listas: (separadas por virgulas)</label>
+                        <input type="text" id="valor" name="valor">
+                    </div>
+                    <div>
+                        <button type="submit" name="opc" value="insert">Enviar</button>
+                        <button type="submit" name="opc" value="remove">Remover</button>
+                    </div>
                 </div>
             </form>
         </div>
