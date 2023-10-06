@@ -74,7 +74,7 @@ form {
 .home-sidebar {
     position: absolute;
     top: 2.5em;
-    right: 20em;
+    right: 10em;
     width: 30%;
     height: 90vh;
     background-color: #eae4e4;
@@ -90,7 +90,7 @@ form {
     left: 30%;
     transform: translate(-50%, -50%);
     width: 400px;
-    height: 180px;
+    height: 650px;
     background-color: #eae4e4;
     border-radius: 1em;
     text-align: center;
@@ -139,4 +139,9 @@ form {
 /* Estilo para o hover nas linhas da tabela */
 .table tr:hover {
     background-color: #dcdcdc;
+}
+/* Bota o butao de signup e login mais longe do canto superior direito */
+.sign-up button {
+    margin-top: 32px; 
+    margin-right: 20px; 
 }
